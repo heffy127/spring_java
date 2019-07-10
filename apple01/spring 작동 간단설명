@@ -1,0 +1,14 @@
+1. spring프로젝트 생성후 설정 순서
+	- pom.xml
+	- project facets
+
+2. mvc2모델 작동방식
+	- 클라이언트가 요청하는 페이지 위치
+		webapp
+	- 컨트롤러 위치
+		src/main/java
+	- 서버가 결과를 담을 페이지 위치
+		webapp/views
+		
+3. 컨트롤러 작동 방식
+	클라이언트의 요청 => front controller => controller => 서버의 결과 담을 페이지 응답
