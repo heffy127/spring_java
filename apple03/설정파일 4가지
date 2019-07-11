@@ -1,0 +1,17 @@
+1. POM.xml
+ - 프로젝트 버전 관리, 라이브러리 관리
+ 
+2. web.xml
+ - Tomcat이 제일 먼저 읽는 설정 파일
+ - parameter 설정
+ - listener 설정
+ - front-controller 설정
+ 
+3. root-context.xml
+전체 프로젝트 객체 생성
+ - 객체 생성 설정(single-tone) <= 전체 프로젝트 설계 방법 (디자인패턴)
+ 
+4. servlet-context.xml
+ - front-controller 세부 설정
+ 	- resources 위치
+ 	- view resolver
