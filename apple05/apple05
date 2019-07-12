@@ -1,0 +1,16 @@
+create table member(
+id varchar2(20),
+pw varchar2(20),
+name varchar2(20),
+tel varchar2(20))
+
+insert into member values('park','park','park','park')
+
+select table_name from tabs;
+
+delete from member;
+
+alter table member modify(
+pw varchar2(20))
+
+desc member;
