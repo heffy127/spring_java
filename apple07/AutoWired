@@ -1,0 +1,15 @@
+타입으로 만들어진 객체의 주소를 찾아서
+내가 만들어놓은 변수(dao)에 넣어준다.
+(의존성 주입)
+@Autowired
+DAO dao;
+
+dao.insert();
+
+
+의존성이 구체적으로 나타날수록
+수정이 많이 필요한 코드가 되어버림.
+class Car{
+	WoodWindow w;
+	Wheel wh
+}
