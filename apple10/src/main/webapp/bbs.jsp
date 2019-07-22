@@ -7,12 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="insert.do">
-		아이디 : <input type="text" name="id"><br> 비밀번호 : <input
-			type="text" name="pw"><br> 이름 : <input type="text"
-			name="name"><br> 전화번호 : <input type="text" name="tel"><br>
-		<input type="submit" value="서버로 전송">
+	<form action="selectBbs.do">
+	아이디 : <input type="text" name="id">
+	<button type="submit">아이디 검색</button>
 	</form>
-
+	<hr>
+	<a href="selectAllBbs.do">전체검색</a>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cDAO">
+	<!-- rs처럼 사용 -->
+	<resultMap type="cDTO" id="rsMap">
+		<result property="id" column="id" />
+		<result property="cmt_content" column="cmt_content" />
+		<result property="cmt_writer" column="cmt_writer" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rsMap" parameterType="String">
+		SELECT * FROM mycomment where id=#{id}
+	</select>
+
+	<insert id="insert" parameterType="cDTO">
+		INSERT INTO mycomment VALUES(#{id},#{cmt_content},#{cmt_writer})
+	</insert>
+<!-- 
+	<update id="update" parameterType="cDTO">
+		UPDATE mycomment SET name=#{name} WHERE id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="cDTO">
+		DELETE FROM mycomment where content = #{content}
+	</delete> -->
+
+</mapper>

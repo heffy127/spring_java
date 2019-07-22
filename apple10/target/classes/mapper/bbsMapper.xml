@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bDAO">
+	<select id="select" parameterType="bDTO" resultMap="rsMap">
+		SELECT * FROM bbs WHERE id = #{id}
+		<!-- #{id}는 프로그램 실행할때 id값 받아서 적용 -->
+	</select>
+
+	<!-- rs처럼 사용 -->
+	<resultMap type="bDTO" id="rsMap">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="writer" column="writer" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="rsMap">
+		SELECT * FROM bbs
+	</select>
+
+	<insert id="insert" parameterType="bDTO">
+		INSERT INTO bbs
+		VALUES(#{id},#{title},#{content},#{writer})
+	</insert>
+
+	<update id="update" parameterType="bDTO">
+		UPDATE bbs SET name=#{name} WHERE id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="bDTO">
+		DELETE FROM member bbs id = #{id}
+	</delete>
+
+</mapper>
