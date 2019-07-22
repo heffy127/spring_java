@@ -20,4 +20,8 @@ public class MycommentDAO {
 	public List<MycommentDTO> selectAll(String id) {
 		return my.selectList("cDAO.selectAll", id);
 	}
+	
+	public List<MycommentDTO> selectAll2() {
+		return my.selectList("cDAO.selectAll2");
+	}
 }

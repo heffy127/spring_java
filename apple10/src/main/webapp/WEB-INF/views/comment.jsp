@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${cDTO.cmt_content} : ${cDTO.cmt_writer}
+	<img src="resources/3.png">${cDTO.cmt_content} : <font color="green">${cDTO.cmt_writer}</font>
 </body>
 </html>

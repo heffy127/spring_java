@@ -15,5 +15,9 @@
 		글쓴이 : ${dto.writer}<br>
 		<hr>
 	</c:forEach>
+	<hr>
+	<c:forEach var="cDTO" items="${list_cmt}">
+		<img src="resources/3.png">${cDTO.cmt_content} : <font color="green">${cDTO.cmt_writer}</font><br>
+	</c:forEach>
 </body>
 </html>

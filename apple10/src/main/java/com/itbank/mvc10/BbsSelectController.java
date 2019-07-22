@@ -12,6 +12,7 @@ public class BbsSelectController {
 	
 	@Autowired
 	BbsDAO dao;
+	
 	@Autowired
 	MycommentDAO cdao;
 
@@ -37,6 +38,8 @@ public class BbsSelectController {
 	public String selectAll(Model model ) {
 		List<BbsDTO> list = dao.selectAll();
 		model.addAttribute("list", list);
+		List<MycommentDTO> list_cmt = cdao.selectAll2();
+		model.addAttribute("list_cmt", list_cmt);
 		return "bbsSelectAll";
 	}
 	

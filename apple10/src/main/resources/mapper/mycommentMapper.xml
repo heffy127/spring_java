@@ -13,6 +13,10 @@
 	<select id="selectAll" resultMap="rsMap" parameterType="String">
 		SELECT * FROM mycomment where id=#{id}
 	</select>
+	
+	<select id="selectAll2" resultMap="rsMap">
+		SELECT * FROM mycomment
+	</select>
 
 	<insert id="insert" parameterType="cDTO">
 		INSERT INTO mycomment VALUES(#{id},#{cmt_content},#{cmt_writer})

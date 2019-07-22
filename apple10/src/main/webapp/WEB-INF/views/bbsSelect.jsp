@@ -10,9 +10,7 @@
 <script type="text/javascript">
 	
 	$(function(){
-		
 		$("#btn").click(function(){
-			
 			var d = $("#f").serialize();
 			$.ajax({
 				url: "comment.do",
@@ -42,7 +40,7 @@
 <input type="button" value="전송" id="btn">
 </form>
 <c:forEach var="cdto" items="${list}">
-	${cdto.cmt_content } ${cdto.cmt_writer }<br>
+	<img src="resources/3.png">${cdto.cmt_content } <font color="green">${cdto.cmt_writer}</font><br>
 </c:forEach>
 <li type="none" id="cmt"></li>
 </body>
