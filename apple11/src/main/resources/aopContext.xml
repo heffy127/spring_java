@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!-- 이 태그(Element) 없으면 스캔이 안됨..맨위에 놓을 것 -->
+<!-- Empty Element(태그 사이에 내용이 없는 요소) -->
+<context:component-scan base-package="com.itbank.mvc11"/><!-- 스캔할 위치 -->
+<bean id="aspect" class="com.itbank.mvc11.AspectClass"></bean>
+<bean id="b" class="com.itbank.mvc11.BSite"></bean>
+
+<aop:config>
+	<!-- 끼워넣을 위치 검색(핵심 메소드) -->
+	<aop:pointcut expression="execution(* com.itbank.mvc11.CSite.show*(..))" id="show"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.CSite.check*(..))" id="check"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSite.order*(..))" id="order"/>
+	
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSitepml.productF*(..))" id="find"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSitepml.basket*(..))" id="basket"/>
+	<aop:pointcut expression="execution(* com.itbank.mvc11.BSitepml.productO*(..))" id="order2"/>
+						<!-- 실행시 조립   반환값                                    메소드 앞글자 (입력값 없어도 될때)-->
+	<aop:aspect ref="aspect">
+		<aop:before method="login2" pointcut-ref="show"/><!-- 어디에 무얼 집어 넣을거냐 -->
+		<aop:after method="logout" pointcut-ref="check"/>
+		<aop:before method="login2" pointcut-ref="order"/>
+		<aop:after method="logout" pointcut-ref="order"/>
+		
+		<aop:after-returning method="returnCall" pointcut-ref="find" returning="returnObj"/>
+		<aop:after-throwing method="errorCall" pointcut-ref="basket"/>
+		<aop:around method="aroundCall" pointcut-ref="order2"/>
+	</aop:aspect>
+	
+</aop:config>
+</beans>
